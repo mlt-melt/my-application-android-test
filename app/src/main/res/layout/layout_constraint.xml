@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ЗАДАЧА 13: Примеры применения контейнера ConstraintLayout
+Демонстрирует:
+- Позиционирование элементов
+- Горизонтальные и вертикальные цепочки элементов
+- Сдвиг (bias) элементов
+- Вес элемента (weight)
+- Горизонтальный и вертикальный ряд виджетов
+-->
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraint_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5"
+    tools:context=".MainActivity">
+
+    <!-- ========== РАЗДЕЛ 1: ОСНОВНОЕ ПОЗИЦИОНИРОВАНИЕ ========== -->
+    <TextView
+        android:id="@+id/title_positioning"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="1️⃣ Позиционирование элементов"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#1565C0"
+        android:gravity="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Верхний левый элемент -->
+    <TextView
+        android:id="@+id/top_left"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Верх-Лево"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#4CAF50"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_positioning" />
+
+    <!-- Верхний правый элемент -->
+    <TextView
+        android:id="@+id/top_right"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:text="Верх-Право"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#FF5722"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_positioning" />
+
+    <!-- Центрированный элемент -->
+    <TextView
+        android:id="@+id/center_element"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:text="Центр"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#2196F3"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/top_left" />
+
+    <!-- ========== РАЗДЕЛ 2: СДВИГ ЭЛЕМЕНТОВ (BIAS) ========== -->
+    <TextView
+        android:id="@+id/title_bias"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="2️⃣ Сдвиг элементов (Bias)"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#D32F2F"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/center_element" />
+
+    <!-- Элемент со сдвигом вправо (bias 75%) -->
+    <TextView
+        android:id="@+id/bias_right"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Bias 75%"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:background="#FF6F00"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintTop_toBottomOf="@id/title_bias" />
+
+    <!-- Элемент со сдвигом влево (bias 25%) -->
+    <TextView
+        android:id="@+id/bias_left"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="Bias 25%"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:background="#7B1FA2"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.25"
+        app:layout_constraintTop_toBottomOf="@id/bias_right" />
+
+    <!-- Элемент со сдвигом вниз (vertical bias 75%) -->
+    <TextView
+        android:id="@+id/bias_down"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:text="V.Bias 75%"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:background="#1976D2"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bias_left"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.75" />
+
+    <!-- ========== РАЗДЕЛ 3: ГОРИЗОНТАЛЬНАЯ ЦЕПОЧКА ========== -->
+    <TextView
+        android:id="@+id/title_h_chain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="3️⃣ Горизонтальная цепочка"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#00897B"
+        android:gravity="center"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bias_down" />
+
+    <!-- Первый элемент горизонтальной цепочки -->
+    <TextView
+        android:id="@+id/chain_h_1"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="A"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#4CAF50"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/chain_h_2"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <!-- Второй элемент горизонтальной цепочки -->
+    <TextView
+        android:id="@+id/chain_h_2"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="B"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#2196F3"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@id/chain_h_1"
+        app:layout_constraintEnd_toStartOf="@id/chain_h_3"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain" />
+
+    <!-- Третий элемент горизонтальной цепочки -->
+    <TextView
+        android:id="@+id/chain_h_3"
+        android:layout_width="60dp"
+        android:layout_height="50dp"
+        android:text="C"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="#FF6F00"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@id/chain_h_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain" />
+
+    <!-- Цепочка в режиме packed -->
+    <TextView
+        android:id="@+id/title_h_chain_packed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Цепочка: packed"
+        android:textSize="12sp"
+        android:textColor="#616161"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chain_h_1" />
+
+    <TextView
+        android:id="@+id/chain_h_packed_1"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="P1"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:background="#7B1FA2"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/chain_h_packed_2"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain_packed"
+        app:layout_constraintHorizontal_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/chain_h_packed_2"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="P2"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:background="#C2185B"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@id/chain_h_packed_1"
+        app:layout_constraintEnd_toStartOf="@id/chain_h_packed_3"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain_packed" />
+
+    <TextView
+        android:id="@+id/chain_h_packed_3"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:text="P3"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:background="#D32F2F"
+        android:layout_margin="4dp"
+        app:layout_constraintStart_toEndOf="@id/chain_h_packed_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_h_chain_packed" />
+
+    <!-- ========== РАЗДЕЛ 4: ВЕРТИКАЛЬНАЯ ЦЕПОЧКА ========== -->
+    <TextView
+        android:id="@+id/title_v_chain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4️⃣ Вертикальная цепочка →"
+        android:textSize="14sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="8dp"
+        android:background="#455A64"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chain_h_packed_1" />
+
+    <!-- Вертикальная цепочка справа -->
+    <TextView
+        android:id="@+id/chain_v_1"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="V1"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#1976D2"
+        android:layout_margin="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_v_chain"
+        app:layout_constraintBottom_toTopOf="@id/chain_v_2"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <TextView
+        android:id="@+id/chain_v_2"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="V2"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#0097A7"
+        android:layout_margin="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chain_v_1"
+        app:layout_constraintBottom_toTopOf="@id/chain_v_3" />
+
+    <TextView
+        android:id="@+id/chain_v_3"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:text="V3"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#00695C"
+        android:layout_margin="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chain_v_2"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

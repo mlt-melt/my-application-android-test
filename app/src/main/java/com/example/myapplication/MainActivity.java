@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,6 +32,47 @@ public class MainActivity extends AppCompatActivity {
 
         editTextMessage = findViewById(R.id.editText_message);
         Button buttonSend = findViewById(R.id.button_send);
+
+        // Кнопка для открытия UINotebookActivity
+        Button buttonUINotebook = new Button(this);
+        buttonUINotebook.setText("1. Размеры экрана (Java код)");
+        buttonUINotebook.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, UINotebookActivity.class);
+            startActivity(intent);
+        });
+
+        // Кнопка для открытия Padding/Margin примеров
+        Button buttonPaddingMargin = new Button(this);
+        buttonPaddingMargin.setText("2. Padding и Margin (XML)");
+        buttonPaddingMargin.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PaddingMarginActivity.class);
+            startActivity(intent);
+        });
+
+        // Кнопка для открытия ConstraintLayout примеров
+        Button buttonConstraint = new Button(this);
+        buttonConstraint.setText("3. ConstraintLayout (XML)");
+        buttonConstraint.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ConstraintLayoutActivity.class);
+            startActivity(intent);
+        });
+
+        // Кнопка для открытия программного создания ConstraintLayout
+        Button buttonProgrammaticConstraint = new Button(this);
+        buttonProgrammaticConstraint.setText("4. ConstraintLayout (Java код)");
+        buttonProgrammaticConstraint.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProgrammaticConstraintActivity.class);
+            startActivity(intent);
+        });
+
+        // Добавляем кнопки в layout
+        LinearLayout mainLayout = findViewById(R.id.main);
+        if (mainLayout != null) {
+            mainLayout.addView(buttonUINotebook, 0);
+            mainLayout.addView(buttonPaddingMargin, 1);
+            mainLayout.addView(buttonConstraint, 2);
+            mainLayout.addView(buttonProgrammaticConstraint, 3);
+        }
 
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override

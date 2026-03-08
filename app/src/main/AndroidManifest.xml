@@ -21,6 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".SecondActivity" />
+        <activity android:name=".UINotebookActivity" />
+        <activity android:name=".PaddingMarginActivity" />
+        <activity android:name=".ConstraintLayoutActivity" />
+        <activity android:name=".ProgrammaticConstraintActivity" />
     </application>
 
 </manifest>

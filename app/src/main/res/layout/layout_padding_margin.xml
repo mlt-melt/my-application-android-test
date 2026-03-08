@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ЗАДАЧА 4: Объявление элементов интерфейса в XML
+ЗАДАЧА 9: Установка ширины и высоты в XML (match_parent, wrap_content)
+ЗАДАЧА 11: Внутренние и внешние отступы в XML (Padding, Margin)
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_padding_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Заголовок: Демонстрация Padding и Margin в XML -->
+    <TextView
+        android:id="@+id/title_padding_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📏 Padding (внутренний отступ) и Margin (внешний отступ)"
+        android:textSize="18sp"
+        android:textColor="#1565C0"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:padding="12dp"
+        android:background="#E8F5E9"
+        android:layout_marginBottom="16dp" />
+
+    <!-- ПРИМЕР 1: Элемент с Padding (внутренний отступ) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Padding (внутри элемента):"
+            android:textColor="#356B2C"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Текст с padding 20dp со всех сторон"
+            android:textColor="#FFFFFF"
+            android:background="#4CAF50"
+            android:padding="20dp"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Текст с paddings: левый 30dp, верхний 10dp, правый 10dp, нижний 10dp"
+            android:textColor="#FFFFFF"
+            android:background="#2196F3"
+            android:paddingLeft="30dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="12sp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- ПРИМЕР 2: Элемент с Margin (внешний отступ) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Margin (снаружи элемента):"
+            android:textColor="#C62828"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Элемент с большим margin -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Элемент с margin 16dp со всех сторон"
+            android:textColor="#FFFFFF"
+            android:background="#FF6F00"
+            android:padding="12dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Элемент с разными margins -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Margin: левый 24dp, верхний 8dp, правый 40dp, нижний 8dp"
+            android:textColor="#3E2723"
+            android:background="#FFCCBC"
+            android:padding="12dp"
+            android:textSize="12sp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="40dp"
+            android:layout_marginBottom="8dp" />
+    </LinearLayout>
+
+    <!-- ПРИМЕР 3: Комбинирование Padding и Margin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3. Комбинирование Padding и Margin:"
+            android:textColor="#6A1B9A"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#F3E5F5"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:layout_margin="12dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Контейнер (внешний padding 8dp, margin 12dp)"
+                android:textColor="#2E1A47"
+                android:textSize="12sp"
+                android:padding="12dp"
+                android:background="#E1BEE7"
+                android:layout_margin="4dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- ПРИМЕР 4: Демонстрация widthMatch/wrap_content + Padding/Margin -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4. Размеры в XML (match_parent, wrap_content):"
+            android:textColor="#0D47A1"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="match_parent: занимает всю доступную ширину"
+            android:textColor="#FFFFFF"
+            android:background="#1976D2"
+            android:padding="12dp"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="wrap_content: размер по содержимому"
+            android:textColor="#FFFFFF"
+            android:background="#0097A7"
+            android:padding="12dp"
+            android:textSize="13sp"
+            android:layout_marginBottom="8dp" />
+    </LinearLayout>
+
+</LinearLayout>
