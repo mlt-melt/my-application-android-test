@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Gravity - выравнивание элементов в контейнере
+android:gravity - выравнивание содержимого внутри элемента
+android:layout_gravity - выравнивание самого элемента в родителе
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="⚖️ Gravity: Позиционирование и выравнивание"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:background="#1565C0"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ПРИМЕР 1: gravity (выравнивание содержимого) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1️⃣ android:gravity (выравнивание содержимого в элементе):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- gravity="center" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="gravity=center\n(по центру)"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:background="#4CAF50"
+                android:layout_marginBottom="4dp" />
+
+            <!-- gravity="top|start" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="gravity=top|start\n(верхний левый угол)"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:gravity="top|start"
+                android:background="#2196F3"
+                android:padding="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- gravity="bottom|end" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="gravity=bottom|end\n(нижний правый)"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:gravity="bottom|end"
+                android:background="#FF6F00"
+                android:padding="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- gravity="center_vertical|start" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="gravity=center_vertical|start\n(слева, вертикальный центр)"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center_vertical|start"
+                android:background="#D32F2F"
+                android:padding="4dp"
+                android:layout_marginBottom="4dp" />
+
+            <!-- gravity="center_horizontal|bottom" -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="gravity=center_horizontal|bottom\n(внизу, горизонтальный центр)"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:gravity="center_horizontal|bottom"
+                android:background="#7B1FA2"
+                android:padding="4dp"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ПРИМЕР 2: layout_gravity в LinearLayout (горизонтальный) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2️⃣ android:layout_gravity (выравнивание элемента в контейнере):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- LinearLayout горизонтальный с разными layout_gravity -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:background="#F0F0F0"
+                android:layout_marginBottom="4dp">
+
+                <!-- layout_gravity="top" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:text="top"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#4CAF50"
+                    android:layout_gravity="top"
+                    android:layout_margin="4dp" />
+
+                <!-- layout_gravity="center_vertical" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:text="center_v"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:background="#2196F3"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="4dp" />
+
+                <!-- layout_gravity="bottom" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:text="bottom"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#FF6F00"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="4dp" />
+
+                <!-- layout_gravity="center" (обе оси) -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:text="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#D32F2F"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp" />
+            </LinearLayout>
+
+            <!-- LinearLayout вертикальный с layout_gravity -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="vertical"
+                android:background="#F0F0F0"
+                android:layout_marginBottom="12dp">
+
+                <!-- layout_gravity="start" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="start"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:background="#7B1FA2"
+                    android:layout_gravity="start"
+                    android:layout_margin="4dp" />
+
+                <!-- layout_gravity="center_horizontal" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="center_h"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:background="#00897B"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="4dp" />
+
+                <!-- layout_gravity="end" -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:text="end"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:background="#F57C00"
+                    android:layout_gravity="end"
+                    android:layout_margin="4dp" />
+            </LinearLayout>
+
+            <!-- ПРИМЕР 3: Комбинирование gravity и layout_gravity -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3️⃣ Комбинирование gravity и layout_gravity:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Элемент с wrap_content, центрирован + содержимое top|start -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="horizontal"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="gravity:top|start\nlayout_gravity:center"
+                    android:textSize="10sp"
+                    android:textColor="#000000"
+                    android:gravity="top|start"
+                    android:background="#C8E6C9"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <!-- Элемент fill_parent со сдвигом содержимого -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:orientation="vertical"
+                android:background="#F5F5F5"
+                android:gravity="bottom|end"
+                android:layout_marginBottom="4dp">
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:text="gravity:bottom|end"
+                    android:textSize="10sp"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:background="#FFCCBC" />
+            </LinearLayout>
+
+            <!-- ПРИМЕР 4: Практический пример - Card Layout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4️⃣ Практический пример - Card Layout:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="12dp"
+                    android:gravity="top">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Заголовок Card"
+                        android:textSize="14sp"
+                        android:textColor="#1976D2"
+                        android:textStyle="bold"
+                        android:gravity="start" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Описание товара с использованием gravity для выравнивания"
+                        android:textSize="12sp"
+                        android:textColor="#616161"
+                        android:gravity="start"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Кнопка в правом нижнем углу -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="12dp">
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="36dp"
+                        android:text="OK"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#1976D2" />
+                </LinearLayout>
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

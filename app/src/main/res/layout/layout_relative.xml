@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+RelativeLayout - позиционирование элементов относительно друг друга
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relative_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/rel_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📍 RelativeLayout: Относительное позиционирование"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#1565C0"
+        android:gravity="center"
+        android:layout_marginBottom="12dp" />
+
+    <!-- ПРИМЕР 1: Базовое позиционирование -->
+    <LinearLayout
+        android:id="@+id/rel_example1_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_title"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1️⃣ Позиционирование:"
+            android:textColor="#356B2C"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- Позиционирование относительно parent -->
+    <FrameLayout
+        android:id="@+id/rel_example1_container"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/rel_example1_title"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="12dp">
+
+        <!-- Левый верхний угол -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:text="Верх\nЛево"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#4CAF50"
+            android:layout_margin="4dp" />
+
+        <!-- Правый верхний угол -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:text="Верх\nПраво"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#2196F3"
+            android:layout_gravity="end|top"
+            android:layout_margin="4dp" />
+
+        <!-- Левый нижний угол -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:text="Низ\nЛево"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#FF6F00"
+            android:layout_gravity="start|bottom"
+            android:layout_margin="4dp" />
+
+        <!-- Центр -->
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:text="Центр"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:background="#D32F2F"
+            android:layout_gravity="center"
+            android:layout_margin="4dp" />
+    </FrameLayout>
+
+    <!-- ПРИМЕР 2: Позиционирование относительно элементов -->
+    <TextView
+        android:id="@+id/rel_example2_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_example1_container"
+        android:text="2️⃣ Позиционирование относительно элементов:"
+        android:textColor="#356B2C"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Базовый элемент (reference) -->
+    <TextView
+        android:id="@+id/rel_ref_view"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/rel_example2_title"
+        android:text="Опорный"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#7B1FA2"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Элемент справа от опорного -->
+    <TextView
+        android:id="@+id/rel_right_view"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_toRightOf="@id/rel_ref_view"
+        android:layout_alignTop="@id/rel_ref_view"
+        android:text="Справа"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#00897B"
+        android:layout_marginLeft="8dp" />
+
+    <!-- Элемент снизу -->
+    <TextView
+        android:id="@+id/rel_bottom_view"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/rel_ref_view"
+        android:layout_alignStart="@id/rel_ref_view"
+        android:text="Снизу"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:background="#F57C00"
+        android:layout_marginTop="8dp" />
+
+    <!-- Элемент справа и снизу -->
+    <TextView
+        android:id="@+id/rel_bottom_right_view"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/rel_ref_view"
+        android:layout_toRightOf="@id/rel_ref_view"
+        android:text="Справа\nСнизу"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        android:gravity="center"
+        android:background="#1976D2"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- ПРИМЕР 3: Выравнивание (align) -->
+    <TextView
+        android:id="@+id/rel_example3_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_bottom_right_view"
+        android:text="3️⃣ Выравнивание (align):"
+        android:textColor="#356B2C"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Contaner для примера выравнивания -->
+    <FrameLayout
+        android:id="@+id/rel_align_container"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@id/rel_example3_title"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="12dp">
+
+        <!-- Базовый элемент слева -->
+        <TextView
+            android:id="@+id/rel_align_left"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="Left"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:background="#4CAF50"
+            android:layout_margin="4dp" />
+
+        <!-- Выравнен с левым (same top) -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="AlignTop"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#2196F3"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_margin="4dp" />
+
+        <!-- Выравнен с левым (same bottom) -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="AlignBot"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#FF6F00"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_margin="4dp" />
+
+        <!-- Выравнен с левым (same baseline) -->
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="AlignBas"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#D32F2F"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="4dp" />
+    </FrameLayout>
+
+    <!-- ПРИМЕР 4: Centerization -->
+    <TextView
+        android:id="@+id/rel_example4_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_align_container"
+        android:text="4️⃣ Центрирование:"
+        android:textColor="#356B2C"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp" />
+
+    <FrameLayout
+        android:id="@+id/rel_center_container"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_below="@id/rel_example4_title"
+        android:background="#F0F0F0"
+        android:layout_marginBottom="12dp">
+
+        <!-- Горизонтально и вертикально центрирован -->
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:text="Полный центр"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:background="#7B1FA2"
+            android:layout_gravity="center" />
+
+        <!-- Только горизонтально -->
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:text="CenterH"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#00897B"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_margin="4dp" />
+
+        <!-- Только вертикально -->
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:text="Center\nV"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:gravity="center"
+            android:background="#1976D2"
+            android:layout_gravity="start|center_vertical" />
+    </FrameLayout>
+
+</RelativeLayout>

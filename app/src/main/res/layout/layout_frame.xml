@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+FrameLayout - наложение элементов друг на друга (стек)
+Атрибут android:layout_gravity - позиционирование элементов
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frame_layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🎬 FrameLayout: Наложение элементов"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:background="#1565C0"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ПРИМЕР 1: Базовое наложение -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1️⃣ Наложение с layout_gravity:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#E8F5E9"
+                android:layout_marginBottom="12dp">
+
+                <!-- Фоновый элемент (самый первый) -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Фоновый элемент"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:background="#4CAF50"
+                    android:layout_gravity="center" />
+
+                <!-- Элемент сверху слева -->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="Верх-Лево"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#2196F3CC"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="8dp" />
+
+                <!-- Элемент сверху справа -->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="Верх-Право"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#FF6F00CC"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="8dp" />
+
+                <!-- Элемент снизу -->
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="60dp"
+                    android:text="Низ"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#D32F2FCC"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="8dp" />
+            </FrameLayout>
+
+            <!-- ПРИМЕР 2: Все позиции layout_gravity -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2️⃣ Все позиции layout_gravity:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="#E0E0E0"
+                android:layout_marginBottom="12dp">
+
+                <!-- Center -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="50dp"
+                    android:text="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="11sp"
+                    android:gravity="center"
+                    android:background="#7B1FA2"
+                    android:layout_gravity="center" />
+
+                <!-- Top -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:text="top"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#1976D2"
+                    android:layout_gravity="top|center_horizontal"
+                    android:layout_margin="4dp" />
+
+                <!-- Bottom -->
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="30dp"
+                    android:text="bottom"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#00897B"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_margin="4dp" />
+
+                <!-- Start -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:text="start"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#F57C00"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_margin="4dp" />
+
+                <!-- End -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="50dp"
+                    android:text="end"
+                    android:textColor="#FFFFFF"
+                    android:textSize="10sp"
+                    android:gravity="center"
+                    android:background="#C2185B"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_margin="4dp" />
+
+                <!-- TopStart -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="TopStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:background="#558B2F"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="4dp" />
+
+                <!-- TopEnd -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="TopEnd"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:background="#004D40"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="4dp" />
+
+                <!-- BottomStart -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="BotStart"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:background="#B71C1C"
+                    android:layout_gravity="bottom|start"
+                    android:layout_margin="4dp" />
+
+                <!-- BottomEnd -->
+                <TextView
+                    android:layout_width="60dp"
+                    android:layout_height="30dp"
+                    android:text="BotEnd"
+                    android:textColor="#FFFFFF"
+                    android:textSize="9sp"
+                    android:gravity="center"
+                    android:background="#1A237E"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="4dp" />
+            </FrameLayout>
+
+            <!-- ПРИМЕР 3: Наложение с полупрозрачностью (Z-order) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3️⃣ Наложение элементов (Z-order):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="12dp">
+
+                <!-- Самый нижний слой -->
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:text="Слой 1\n(снизу)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#4CAF50"
+                    android:layout_gravity="start|center_vertical"
+                    android:layout_margin="8dp" />
+
+                <!-- Средний слой -->
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:text="Слой 2\n(середина)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#2196F3DD"
+                    android:layout_gravity="center"
+                    android:layout_margin="8dp" />
+
+                <!-- Самый верхний слой -->
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="100dp"
+                    android:text="Слой 3\n(сверху)"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:background="#FF6F00FF"
+                    android:layout_gravity="end|center_vertical"
+                    android:layout_margin="8dp" />
+            </FrameLayout>
+
+            <!-- ПРИМЕР 4: Имитация Card с тенью -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4️⃣ Card с элементом сверху:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="12dp"
+                android:elevation="4dp">
+
+                <!-- Card фон -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F5F5F5"
+                    android:padding="16dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Содержание Card"
+                        android:textColor="#424242"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Описание элемента"
+                        android:textColor="#757575"
+                        android:textSize="12sp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+
+                <!-- Badge сверху -->
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:text="5"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:background="#D32F2F"
+                    android:layout_gravity="top|end"
+                    android:layout_margin="8dp" />
+            </FrameLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>

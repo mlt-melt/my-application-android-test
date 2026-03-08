@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+TableLayout - табличное расположение элементов
+TableRow - строка таблицы
+Атрибут layout_span - объединение ячеек
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📊 TableLayout: Табличное расположение"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:background="#1565C0"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ПРИМЕР 1: Базовая таблица -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1️⃣ Базовая таблица 3×3:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:layout_marginBottom="12dp">
+
+                <!-- Заголовок -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Колонка 1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#4CAF50"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Колонка 2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#4CAF50"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Колонка 3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#4CAF50"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 1 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="1-1"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="1-2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#E8F5E9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="1-3"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="2-1"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#E8F5E9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="2-2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="2-3"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#E8F5E9"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 3 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="3-1"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="3-2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#E8F5E9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="3-3"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+                </TableRow>
+            </TableLayout>
+
+            <!-- ПРИМЕР 2: Объединение ячеек (layout_span) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2️⃣ Объединение ячеек (columnSpan):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:layout_marginBottom="12dp">
+
+                <!-- Строка 1: объединение 2 ячеек -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_column="0"
+                        android:layout_span="2"
+                        android:text="Объединено 2 ячейки"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#2196F3"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Кол.3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FF6F00"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Кол.1"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Кол.2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#E8F5E9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:text="Кол.3"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 3: объединение 3 ячеек -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_span="3"
+                        android:text="Объединено 3 ячейки (вся строка)"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#D32F2F"
+                        android:layout_margin="1dp" />
+                </TableRow>
+            </TableLayout>
+
+            <!-- ПРИМЕР 3: Таблица с чередованием цветов -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3️⃣ Таблица с чередованием расцветки:"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="*"
+                android:layout_marginBottom="12dp">
+
+                <!-- Header -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Имя"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#1976D2"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Оценка"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#1976D2"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Статус"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:background="#1976D2"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 1 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Иван"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#C8E6C9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="5"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#C8E6C9"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="ОК"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#4CAF50"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 2 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Мария"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="4"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFFFFF"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="ОК"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#4CAF50"
+                        android:layout_margin="1dp" />
+                </TableRow>
+
+                <!-- Строка 3 -->
+                <TableRow>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="Петр"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFCCBC"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="2"
+                        android:textColor="#000000"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FFCCBC"
+                        android:layout_margin="1dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="45dp"
+                        android:text="⚠️"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        android:background="#FF6F00"
+                        android:layout_margin="1dp" />
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

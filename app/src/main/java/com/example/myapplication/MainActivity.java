@@ -74,6 +74,87 @@ public class MainActivity extends AppCompatActivity {
             mainLayout.addView(buttonProgrammaticConstraint, 3);
         }
 
+            // ===== ЧАСТЬ 2: Layout контейнеры =====
+            Button buttonLinearWeight = new Button(this);
+            buttonLinearWeight.setText("5. LinearLayout (Weight) - XML");
+            buttonLinearWeight.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LinearLayoutWeightActivity.class)));
+
+            Button buttonLinearProgrammatic = new Button(this);
+            buttonLinearProgrammatic.setText("5b. LinearLayout - Java код");
+            buttonLinearProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticLinearLayoutActivity.class)));
+
+            Button buttonRelative = new Button(this);
+            buttonRelative.setText("6. RelativeLayout - XML");
+            buttonRelative.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, RelativeLayoutActivity.class)));
+
+            Button buttonRelativeProgrammatic = new Button(this);
+            buttonRelativeProgrammatic.setText("6b. RelativeLayout - Java код");
+            buttonRelativeProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticRelativeLayoutActivity.class)));
+
+            Button buttonTable = new Button(this);
+            buttonTable.setText("7. TableLayout - XML");
+            buttonTable.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, TableLayoutActivity.class)));
+
+            Button buttonTableProgrammatic = new Button(this);
+            buttonTableProgrammatic.setText("7b. TableLayout - Java код");
+            buttonTableProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticTableLayoutActivity.class)));
+
+            Button buttonFrame = new Button(this);
+            buttonFrame.setText("8. FrameLayout - XML");
+            buttonFrame.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, FrameLayoutActivity.class)));
+
+            Button buttonFrameProgrammatic = new Button(this);
+            buttonFrameProgrammatic.setText("8b. FrameLayout - Java код");
+            buttonFrameProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticFrameLayoutActivity.class)));
+
+            Button buttonGrid = new Button(this);
+            buttonGrid.setText("9. GridLayout - XML");
+            buttonGrid.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, GridLayoutActivity.class)));
+
+            Button buttonGridProgrammatic = new Button(this);
+            buttonGridProgrammatic.setText("9b. GridLayout - Java код");
+            buttonGridProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticGridLayoutActivity.class)));
+
+            Button buttonScroll = new Button(this);
+            buttonScroll.setText("10. ScrollView - XML");
+            buttonScroll.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ScrollViewActivity.class)));
+
+            Button buttonScrollProgrammatic = new Button(this);
+            buttonScrollProgrammatic.setText("10b. ScrollView - Java код");
+            buttonScrollProgrammatic.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProgrammaticScrollViewActivity.class)));
+
+            Button buttonGravity = new Button(this);
+            buttonGravity.setText("11. Gravity - Позиционирование");
+            buttonGravity.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, GravityActivity.class)));
+
+            Button buttonNested = new Button(this);
+            buttonNested.setText("12. Вложенные Layouts");
+            buttonNested.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, NestedLayoutActivity.class)));
+
+            Button buttonAdvanced = new Button(this);
+            buttonAdvanced.setText("13. Все контейнеры (программно)");
+            buttonAdvanced.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, AdvancedLayoutsProgrammaticActivity.class)));
+
+            // Добавляем все кнопки в layout
+            if (mainLayout != null) {
+                int index = 4;
+                mainLayout.addView(buttonLinearWeight, index++);
+                mainLayout.addView(buttonLinearProgrammatic, index++);
+                mainLayout.addView(buttonRelative, index++);
+                mainLayout.addView(buttonRelativeProgrammatic, index++);
+                mainLayout.addView(buttonTable, index++);
+                mainLayout.addView(buttonTableProgrammatic, index++);
+                mainLayout.addView(buttonFrame, index++);
+                mainLayout.addView(buttonFrameProgrammatic, index++);
+                mainLayout.addView(buttonGrid, index++);
+                mainLayout.addView(buttonGridProgrammatic, index++);
+                mainLayout.addView(buttonScroll, index++);
+                mainLayout.addView(buttonScrollProgrammatic, index++);
+                mainLayout.addView(buttonGravity, index++);
+                mainLayout.addView(buttonNested, index++);
+                mainLayout.addView(buttonAdvanced, index);
+            }
+
         buttonSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

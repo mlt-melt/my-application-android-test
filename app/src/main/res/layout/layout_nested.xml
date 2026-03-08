@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Вложенные layout и использование <include>
+Демонстрирует:
+- Вложенные LinearLayout
+- Вложенные FrameLayout
+- Элемент <include> для переиспользования компонентов
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Заголовок -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🏗️ Вложенные Layout и Include"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:padding="12dp"
+                android:background="#1565C0"
+                android:gravity="center"
+                android:layout_marginBottom="12dp" />
+
+            <!-- ПРИМЕР 1: Вложенные LinearLayout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1️⃣ Вложенные LinearLayout (сложная структура):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#F5F5F5"
+                android:layout_marginBottom="12dp">
+
+                <!-- Заголовок контейнера -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="#4CAF50">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Header"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- Основное содержимое (вложенные элементы) -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <!-- Строка 1 с выравниванием -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Название:"
+                            android:textSize="12sp"
+                            android:textColor="#424242" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Продукт"
+                            android:textSize="12sp"
+                            android:textColor="#1976D2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Строка 2 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginBottom="4dp">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Цена:"
+                            android:textSize="12sp"
+                            android:textColor="#424242" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="999 руб"
+                            android:textSize="12sp"
+                            android:textColor="#1976D2"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- Строка 3 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Статус:"
+                            android:textSize="12sp"
+                            android:textColor="#424242" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="✓ Доступно"
+                            android:textSize="12sp"
+                            android:textColor="#4CAF50"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Нижний контейнер для кнопок -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:gravity="end">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Назад"
+                        android:textSize="12sp"
+                        android:textColor="#1976D2"
+                        android:padding="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Далее"
+                        android:textSize="12sp"
+                        android:textColor="#FFFFFF"
+                        android:background="#1976D2"
+                        android:padding="8dp"
+                        android:layout_marginLeft="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ПРИМЕР 2: Вложенные FrameLayout -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2️⃣ Вложенные FrameLayout (наложение):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:background="#FFFFFF"
+                android:layout_marginBottom="12dp">
+
+                <!-- Фоновое изображение/цвет -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E3F2FD"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Фоновый слой"
+                        android:textSize="14sp"
+                        android:textColor="#1976D2"
+                        android:gravity="center"
+                        android:padding="16dp" />
+                </LinearLayout>
+
+                <!-- Передний слой (контент) с выравниванием -->
+                <FrameLayout
+                    android:layout_width="280dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="12dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Вложенный контент"
+                            android:textSize="13sp"
+                            android:textColor="#1976D2"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Это содержимое находится внутри FrameLayout, который вложен в другой FrameLayout"
+                            android:textSize="11sp"
+                            android:textColor="#616161"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+                </FrameLayout>
+            </FrameLayout>
+
+            <!-- ПРИМЕР 3: Использование <include> element -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3️⃣ Элемент &lt;include&gt; (переиспользование компонента):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Первый Card через include -->
+            <include
+                layout="@layout/component_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- Второй Card через include (переиспользование) -->
+            <include
+                layout="@layout/component_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <!-- ПРИМЕР 4: Сложная вложенность -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4️⃣ Сложная вложенность (Linear+Frame+Grid):"
+                android:textColor="#356B2C"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#F5F5F5"
+                android:padding="8dp"
+                android:layout_marginBottom="12dp">
+
+                <!-- Уровень 1: Linear -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Уровень 2: Frame -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:background="#FFFFFF"
+                        android:padding="8dp">
+
+                        <!-- Уровень 3: Grid -->
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:rowCount="2"
+                            android:columnCount="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ячейка 1"
+                                android:textColor="#FFFFFF"
+                                android:background="#4CAF50"
+                                android:padding="12dp"
+                                android:layout_row="0"
+                                android:layout_column="0"
+                                android:layout_columnWeight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ячейка 2"
+                                android:textColor="#FFFFFF"
+                                android:background="#2196F3"
+                                android:padding="12dp"
+                                android:layout_row="0"
+                                android:layout_column="1"
+                                android:layout_columnWeight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ячейка 3"
+                                android:textColor="#FFFFFF"
+                                android:background="#FF6F00"
+                                android:padding="12dp"
+                                android:layout_row="1"
+                                android:layout_column="0"
+                                android:layout_columnWeight="1" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Ячейка 4"
+                                android:textColor="#FFFFFF"
+                                android:background="#D32F2F"
+                                android:padding="12dp"
+                                android:layout_row="1"
+                                android:layout_column="1"
+                                android:layout_columnWeight="1" />
+                        </GridLayout>
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ScrollView - прокручиваемый контейнер (вертикальная прокрутка)
+HorizontalScrollView - горизонтальная прокрутка
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tools:context=".MainActivity">
+
+    <!-- Заголовок (без скролла) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📜 ScrollView: Прокручиваемые контейнеры"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="12dp"
+        android:background="#1565C0"
+        android:gravity="center"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ПРИМЕР 1: VerticalScrollView -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1️⃣ Вертикальная прокрутка (ScrollView):"
+        android:textColor="#356B2C"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Элемент 1\nЭто текст который можно прокручивать вертикально"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#4CAF50"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Элемент 2\nОписание товара №2"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#2196F3"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Элемент 3\nОписание товара №3"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#FF6F00"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. Элемент 4\nОписание товара №4"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#D32F2F"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. Элемент 5\nОписание товара №5"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#7B1FA2"
+                android:padding="8dp"
+                android:layout_marginBottom="4dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. Элемент 6\nОписание товара №6"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:background="#00897B"
+                android:padding="8dp" />
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ПРИМЕР 2: HorizontalScrollView -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2️⃣ Горизонтальная прокрутка (HorizontalScrollView):"
+        android:textColor="#356B2C"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#F5F5F5"
+        android:layout_marginBottom="8dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 1"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#4CAF50"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 2"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 3"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#FF6F00"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 4"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#D32F2F"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 5"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#7B1FA2"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="Элемент 6"
+                android:textSize="11sp"
+                android:textColor="#FFFFFF"
+                android:background="#00897B"
+                android:gravity="center"
+                android:layout_margin="2dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- ПРИМЕР 3: Комбинирование (Scroll + Grid) -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3️⃣ ScrollView + GridLayout:"
+        android:textColor="#356B2C"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        android:layout_marginTop="8dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="#F5F5F5">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:rowCount="6"
+            android:columnCount="2"
+            android:padding="4dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Колонка 1"
+                android:textColor="#FFFFFF"
+                android:background="#1976D2"
+                android:padding="8dp"
+                android:layout_row="0"
+                android:layout_column="0"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Колонка 2"
+                android:textColor="#FFFFFF"
+                android:background="#1976D2"
+                android:padding="8dp"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.1"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:layout_row="1"
+                android:layout_column="0"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.2"
+                android:textColor="#000000"
+                android:background="#E0E0E0"
+                android:padding="8dp"
+                android:layout_row="1"
+                android:layout_column="1"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.3"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:layout_row="2"
+                android:layout_column="0"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.4"
+                android:textColor="#000000"
+                android:background="#E0E0E0"
+                android:padding="8dp"
+                android:layout_row="2"
+                android:layout_column="1"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.5"
+                android:textColor="#000000"
+                android:background="#FFFFFF"
+                android:padding="8dp"
+                android:layout_row="3"
+                android:layout_column="0"
+                android:layout_columnWeight="1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Поз.6"
+                android:textColor="#000000"
+                android:background="#E0E0E0"
+                android:padding="8dp"
+                android:layout_row="3"
+                android:layout_column="1"
+                android:layout_columnWeight="1" />
+        </GridLayout>
+    </ScrollView>
+
+</LinearLayout>

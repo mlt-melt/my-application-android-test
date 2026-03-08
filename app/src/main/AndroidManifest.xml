@@ -25,6 +25,21 @@
         <activity android:name=".PaddingMarginActivity" />
         <activity android:name=".ConstraintLayoutActivity" />
         <activity android:name=".ProgrammaticConstraintActivity" />
+        <activity android:name=".LinearLayoutWeightActivity" />
+        <activity android:name=".RelativeLayoutActivity" />
+        <activity android:name=".TableLayoutActivity" />
+        <activity android:name=".FrameLayoutActivity" />
+        <activity android:name=".GridLayoutActivity" />
+        <activity android:name=".ScrollViewActivity" />
+        <activity android:name=".GravityActivity" />
+        <activity android:name=".NestedLayoutActivity" />
+        <activity android:name=".ProgrammaticLinearLayoutActivity" />
+        <activity android:name=".ProgrammaticRelativeLayoutActivity" />
+        <activity android:name=".ProgrammaticTableLayoutActivity" />
+        <activity android:name=".ProgrammaticFrameLayoutActivity" />
+        <activity android:name=".ProgrammaticGridLayoutActivity" />
+        <activity android:name=".ProgrammaticScrollViewActivity" />
+        <activity android:name=".AdvancedLayoutsProgrammaticActivity" />
     </application>
 
 </manifest>
