@@ -22,6 +22,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "third practice"
+rootProject.name = "fourth practice"
 include(":app")
  

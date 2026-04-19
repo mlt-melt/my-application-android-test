@@ -1,5 +1,3 @@
 <resources>
-    <string name="app_name">third practice</string>
-    <string name="drawer_open">Открыть навигацию</string>
-    <string name="drawer_close">Закрыть навигацию</string>
+    <string name="app_name">fourth practice</string>
 </resources>
