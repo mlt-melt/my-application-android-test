@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.myapplication"
+    namespace = "com.example.thirdpractice"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,9 +11,9 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.myapplication"
-        minSdk = 23
-        targetSdk = 34
+        applicationId = "com.example.thirdpractice"
+        minSdk = 24
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -40,7 +40,6 @@ dependencies {
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
-    implementation("androidx.gridlayout:gridlayout:1.0.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

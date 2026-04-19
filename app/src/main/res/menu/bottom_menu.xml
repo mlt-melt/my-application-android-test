@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_garage"
+        android:icon="@drawable/ic_bottom_garage"
+        android:title="Гараж" />
+    <item
+        android:id="@+id/nav_favorites"
+        android:icon="@drawable/ic_bottom_favorites"
+        android:title="Избранное" />
+    <item
+        android:id="@+id/nav_detail_settings"
+        android:icon="@drawable/ic_bottom_settings"
+        android:title="Параметры" />
+</menu>

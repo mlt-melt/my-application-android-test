@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">MyApplication</string>
-    <string name="hello_text">Hello!</string>
-    <string name="button_text">Open</string>
-    <string name="message_hint">Message</string>
+    <string name="app_name">third practice</string>
+    <string name="drawer_open">Открыть навигацию</string>
+    <string name="drawer_close">Закрыть навигацию</string>
 </resources>
