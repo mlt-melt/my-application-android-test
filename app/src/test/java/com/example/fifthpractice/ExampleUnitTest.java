@@ -1,4 +1,4 @@
-package com.example.fourthpractice;
+package com.example.fifthpractice;
 
 import org.junit.Test;
 
