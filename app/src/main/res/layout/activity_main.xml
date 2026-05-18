@@ -99,6 +99,13 @@
                 android:layout_marginTop="12dp"
                 android:text="Открыть внешний ридер" />
 
+            <Button
+                android:id="@+id/btnDataStorage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Открыть DataStorage" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

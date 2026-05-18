@@ -63,12 +63,14 @@ public class MainActivity extends AppCompatActivity {
         Button btnRead = findViewById(R.id.btnRead);
         Button btnDelete = findViewById(R.id.btnDelete);
         Button btnExternal = findViewById(R.id.btnExternal);
+        Button btnDataStorage = findViewById(R.id.btnDataStorage);
 
         btnCreate.setOnClickListener(v -> createFile());
         btnAppend.setOnClickListener(v -> appendToFile());
         btnRead.setOnClickListener(v -> readFile());
         btnDelete.setOnClickListener(v -> confirmDelete());
         btnExternal.setOnClickListener(v -> openExternalReader());
+        btnDataStorage.setOnClickListener(v -> startActivity(new android.content.Intent(this, DataStorageActivity.class)));
 
         if (savedInstanceState != null) {
             etFilename.setText(savedInstanceState.getString(KEY_FILENAME, ""));

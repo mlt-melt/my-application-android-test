@@ -26,6 +26,9 @@
         <activity
             android:name=".ExternalReaderActivity"
             android:exported="false" />
+        <activity
+            android:name=".DataStorageActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
