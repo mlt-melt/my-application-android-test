@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.fifthpractice"
+    namespace = "com.example.sixthpractice"
     compileSdk {
         version = release(36) {
             minorApiLevel = 1
@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.example.fifthpractice"
+        applicationId = "com.example.sixthpractice"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
