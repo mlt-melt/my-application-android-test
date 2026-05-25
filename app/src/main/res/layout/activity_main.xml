@@ -1,64 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="12dp"
+    android:fillViewport="true"
     tools:context=".MainActivity">
 
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <ImageView
-        android:id="@+id/rotateImageView"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="12dp"
-        android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher" />
-
-    <Button
-        android:id="@+id/moveButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Анимация перемещения" />
-
-    <TextView
-        android:id="@+id/scaleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="#E0E0E0"
-        android:padding="8dp"
-        android:text="Нажмите для масштабирования"
-        android:textSize="16sp" />
-
-    <Button
-        android:id="@+id/playButton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Воспроизвести музыку" />
+        android:orientation="vertical"
+        android:padding="12dp">
 
-    <Button
-        android:id="@+id/notifyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Обычное уведомление" />
+        <WebView
+            android:id="@+id/webview"
+            android:layout_width="match_parent"
+            android:layout_height="220dp" />
 
-    <Button
-        android:id="@+id/delayedNotifyButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Отложенное уведомление (10 сек)" />
+        <ImageView
+            android:id="@+id/rotateImageView"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="12dp"
+            android:contentDescription="@string/app_name"
+            android:src="@mipmap/ic_launcher" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/moveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Анимация перемещения" />
+
+        <TextView
+            android:id="@+id/scaleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#E0E0E0"
+            android:padding="8dp"
+            android:text="Нажмите для масштабирования"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Воспроизвести музыку" />
+
+        <Button
+            android:id="@+id/notifyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Обычное уведомление" />
+
+        <Button
+            android:id="@+id/delayedNotifyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Отложенное уведомление (10 сек)" />
+
+        <Button
+            android:id="@+id/providerReadButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="Прочитать книги через ContentProvider" />
+
+        <Button
+            android:id="@+id/exportJsonButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Сохранить книги в JSON файл" />
+
+        <Button
+            android:id="@+id/importJsonButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Прочитать JSON файл" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Поля первой книги из JSON:" />
+
+        <TextView
+            android:id="@+id/titleField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Название: -" />
+
+        <TextView
+            android:id="@+id/authorField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Автор: -" />
+
+        <TextView
+            android:id="@+id/yearField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Год: -" />
+
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="#F5F5F5"
+            android:padding="8dp"
+            android:text="Результат операций появится здесь"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>

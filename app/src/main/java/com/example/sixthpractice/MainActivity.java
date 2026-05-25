@@ -6,17 +6,18 @@ import android.app.AlarmManager;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.database.Cursor;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.AudioAttributes;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.TextView;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -25,18 +26,35 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     public static final String CHANNEL_ID = "practice_channel";
     private static final int REQUEST_NOTIFICATION_PERMISSION = 100;
     private static final String AUDIO_URL = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+    private static final String JSON_FILE_NAME = "books.json";
 
     private WebView webView;
     private MediaPlayer mediaPlayer;
     private boolean mediaPrepared;
     private Button playButton;
+    private TextView titleField;
+    private TextView authorField;
+    private TextView yearField;
+    private TextView resultText;
+    private final Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         setupWebView();
         setupAnimations();
         setupMediaPlayer();
+        setupProviderAndJsonDemo();
 
         createNotificationChannel();
         requestNotificationPermissionIfNeeded();
@@ -55,6 +74,135 @@ public class MainActivity extends AppCompatActivity {
 
         Button delayedNotifyButton = findViewById(R.id.delayedNotifyButton);
         delayedNotifyButton.setOnClickListener(v -> scheduleNotification(10_000));
+    }
+
+    private void setupProviderAndJsonDemo() {
+        titleField = findViewById(R.id.titleField);
+        authorField = findViewById(R.id.authorField);
+        yearField = findViewById(R.id.yearField);
+        resultText = findViewById(R.id.resultText);
+
+        Button providerReadButton = findViewById(R.id.providerReadButton);
+        Button exportJsonButton = findViewById(R.id.exportJsonButton);
+        Button importJsonButton = findViewById(R.id.importJsonButton);
+
+        providerReadButton.setOnClickListener(v -> {
+            List<Book> books = readBooksFromProvider();
+            if (books.isEmpty()) {
+                resultText.setText("Провайдер не вернул данных");
+                return;
+            }
+            resultText.setText(formatBooks(books));
+            Toast.makeText(this, "Получено книг: " + books.size(), Toast.LENGTH_SHORT).show();
+        });
+
+        exportJsonButton.setOnClickListener(v -> saveBooksToJsonFile());
+        importJsonButton.setOnClickListener(v -> loadBooksFromJsonFile());
+    }
+
+    private List<Book> readBooksFromProvider() {
+        List<Book> books = new ArrayList<>();
+
+        Cursor cursor = getContentResolver().query(
+                BookProvider.CONTENT_URI,
+                new String[]{
+                        BookDbHelper.COL_ID,
+                        BookDbHelper.COL_TITLE,
+                        BookDbHelper.COL_AUTHOR,
+                        BookDbHelper.COL_YEAR
+                },
+                null,
+                null,
+                BookDbHelper.COL_TITLE + " ASC"
+        );
+
+        if (cursor == null) {
+            return books;
+        }
+
+        try {
+            int idColumn = cursor.getColumnIndexOrThrow(BookDbHelper.COL_ID);
+            int titleColumn = cursor.getColumnIndexOrThrow(BookDbHelper.COL_TITLE);
+            int authorColumn = cursor.getColumnIndexOrThrow(BookDbHelper.COL_AUTHOR);
+            int yearColumn = cursor.getColumnIndexOrThrow(BookDbHelper.COL_YEAR);
+
+            while (cursor.moveToNext()) {
+                books.add(new Book(
+                        cursor.getLong(idColumn),
+                        cursor.getString(titleColumn),
+                        cursor.getString(authorColumn),
+                        cursor.getInt(yearColumn)
+                ));
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return books;
+    }
+
+    private void saveBooksToJsonFile() {
+        List<Book> books = readBooksFromProvider();
+        if (books.isEmpty()) {
+            Toast.makeText(this, "Нет данных для сохранения", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        String json = gson.toJson(books);
+
+        try (FileOutputStream fos = openFileOutput(JSON_FILE_NAME, MODE_PRIVATE);
+             OutputStreamWriter writer = new OutputStreamWriter(fos)) {
+            writer.write(json);
+            resultText.setText("JSON сохранен в файл " + JSON_FILE_NAME + "\n\n" + json);
+            Toast.makeText(this, "JSON сохранен", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            Toast.makeText(this, "Ошибка записи JSON", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void loadBooksFromJsonFile() {
+        StringBuilder jsonBuilder = new StringBuilder();
+
+        try (FileInputStream fis = openFileInput(JSON_FILE_NAME);
+             InputStreamReader isr = new InputStreamReader(fis);
+             BufferedReader reader = new BufferedReader(isr)) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                jsonBuilder.append(line);
+            }
+        } catch (IOException e) {
+            Toast.makeText(this, "Файл JSON пока не создан", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Type listType = new TypeToken<List<Book>>() {
+        }.getType();
+        List<Book> books = gson.fromJson(jsonBuilder.toString(), listType);
+
+        if (books == null || books.isEmpty()) {
+            Toast.makeText(this, "В JSON нет книг", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Book firstBook = books.get(0);
+        titleField.setText("Название: " + firstBook.title);
+        authorField.setText("Автор: " + firstBook.author);
+        yearField.setText("Год: " + firstBook.year);
+
+        resultText.setText("JSON прочитан из файла " + JSON_FILE_NAME + "\n\n" + formatBooks(books));
+        Toast.makeText(this, "JSON загружен", Toast.LENGTH_SHORT).show();
+    }
+
+    private String formatBooks(List<Book> books) {
+        StringBuilder sb = new StringBuilder();
+        for (Book book : books) {
+            sb.append("ID: ").append(book.id)
+                    .append(", Название: ").append(book.title)
+                    .append(", Автор: ").append(book.author)
+                    .append(", Год: ").append(book.year)
+                    .append("\n");
+        }
+        return sb.toString();
     }
 
     private void setupWebView() {

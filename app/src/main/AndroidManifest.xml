@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <permission
+        android:name="com.example.sixthpractice.permission.READ_PROVIDER"
+        android:protectionLevel="normal" />
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
@@ -17,6 +21,12 @@
         <receiver
             android:name=".AlarmReceiver"
             android:exported="false" />
+
+        <provider
+            android:name=".BookProvider"
+            android:authorities="com.example.sixthpractice.provider"
+            android:exported="true"
+            android:readPermission="com.example.sixthpractice.permission.READ_PROVIDER" />
 
         <activity
             android:name=".MainActivity"
